@@ -52,6 +52,7 @@ public class Lab3P2_HectorRivera {
                     String greentype = "";
                     int cont = 0;
                     for (Pokemon p : Pokemons) {
+                        
                         if (p instanceof WaterType) {
                             watertype+= cont+". "+p+"\n";
                         } else if (p instanceof FireType) {
@@ -59,6 +60,7 @@ public class Lab3P2_HectorRivera {
                         } else if (p instanceof GrassType) {
                             greentype+= cont+". "+p+"\n";
                         }
+                        cont++;
                     }
                     System.out.println("---FireType---\n"+firetype);
                     System.out.println("---watertype---\n"+watertype);
@@ -81,6 +83,10 @@ public class Lab3P2_HectorRivera {
                             }
                             System.out.println("Cual desea borrar?");
                             int delete = sc.nextInt();
+                            while(delete<Pokemons.size()){
+                                System.out.println("Ingrese calor valido");
+                                delete = sc.nextInt();
+                            }
                             if (Pokemons.get(delete) instanceof FireType ) {
                                 Pokemons.remove(delete);
                             }else{
@@ -95,6 +101,10 @@ public class Lab3P2_HectorRivera {
                             }
                             System.out.println("Cual desea borrar?");
                             int delete = sc.nextInt();
+                            while(delete<Pokemons.size()){
+                                System.out.println("Ingrese calor valido");
+                                delete = sc.nextInt();
+                            }
                             if (Pokemons.get(delete) instanceof WaterType ) {
                                 Pokemons.remove(delete);
                             }else{
@@ -109,6 +119,10 @@ public class Lab3P2_HectorRivera {
                             }
                             System.out.println("Cual desea borrar?");
                             int delete = sc.nextInt();
+                            while(delete<Pokemons.size()){
+                                System.out.println("Ingrese calor valido");
+                                delete = sc.nextInt();
+                            }
                             if (Pokemons.get(delete) instanceof GrassType ) {
                                 Pokemons.remove(delete);
                             }else{
@@ -166,6 +180,10 @@ public class Lab3P2_HectorRivera {
                         }
                         System.out.println("Ingrese el pokemon a modificar");
                         int mod = sc.nextInt();
+                        while(mod<Pokemons.size()){
+                                System.out.println("Ingrese calor valido");
+                                mod = sc.nextInt();
+                        }
                         if (Pokemons.get(mod).isCaptured()==false) {
                                 if (tipo == 1 && Pokemons.get(mod) instanceof FireType) {
 
