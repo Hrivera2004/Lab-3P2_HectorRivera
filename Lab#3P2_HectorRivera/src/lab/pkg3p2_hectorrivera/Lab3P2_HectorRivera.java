@@ -11,9 +11,9 @@ public class Lab3P2_HectorRivera {
     static ArrayList<Pokeball> Inventory= new ArrayList<Pokeball>();
     static ArrayList<Pokemon> Pokemons= new ArrayList<Pokemon>();
     static Scanner sc = new Scanner(System.in);
-    
+    static Random rd = new Random();
     public static void main(String[] args) {
-        Random rd = new Random();
+        
         int opcion = 0;
         while(opcion!=7){
             System.out.println("----------Menu----------");
@@ -122,19 +122,35 @@ public class Lab3P2_HectorRivera {
                     if (Inventory.size()>0) {
                         System.out.println("Eliga una pokebola");
                         int pokeball = sc.nextInt();
-                        
-                        while(Inventory.size()<pokeball){
-                            System.out.println("Ingrese una posicion valida");
-                            pokeball = sc.nextInt();
+                        Pokemon toCapture = random();
+                        System.out.println("EL POKEMON "+toCapture.getName()+ " HA aparecido");
+                        System.out.println("desea \n1. huir \n2.capturar");
+                        int desicion = sc.nextInt();
+                        while(desicion != 1 || desicion != 2){
+                            System.out.println("Ingrese valor valido");
+                            desicion = sc.nextInt();
                         }
-                        int chance = Inventory.get(pokeball).getEfective()*10;
-                        int random = rd.nextInt(89)+1;
-                        if (chance>=random) {
-                            
-                        }else{
-                            
+                        switch(desicion){
+                            case 1:
+                                while(Inventory.size()<pokeball){
+                                    System.out.println("Ingrese una posicion valida");
+                                    pokeball = sc.nextInt();
+                                }
+                                int chance = Inventory.get(pokeball).getEfective()*10;
+                                int random = rd.nextInt(30)+1;
+                                if (chance>=random) {
+                                    System.out.println("Capturo al pokemon");
+                                    toCapture.setMiPokeball(Inventory.get(pokeball));
+                                    toCapture.setCaptured(true);
+                                }else{
+                                    System.out.println("A fallado en capturar al pokemon");
+                                }
+                                Inventory.remove(pokeball);
+                            break;
+                            case 2:
+                                System.out.println("A desidido hiuir :)");
+                            break;
                         }
-                        Inventory.remove(pokeball);
                     }else{
                         System.out.println("No tiene sufficiente pokebollas");
                     }
@@ -317,5 +333,16 @@ public class Lab3P2_HectorRivera {
         }
 
     }
-    
+    public static Pokemon random(){
+        boolean found = false ;
+        Pokemon pokemon= new Pokemon();
+        while(found==false){
+            int rdPokemon = rd.nextInt(Pokemons.size());
+            if (Pokemons.get(rdPokemon).isCaptured()==false) {
+                found = true;
+                pokemon = Pokemons.get(rdPokemon);
+            }
+        }
+        return pokemon;
+    }
 }
