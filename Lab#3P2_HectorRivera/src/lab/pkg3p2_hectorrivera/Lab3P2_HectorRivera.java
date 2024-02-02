@@ -128,7 +128,7 @@ public class Lab3P2_HectorRivera {
                     }
                     System.out.println("Ingrese el pokemon a modificar");
                     int mod = sc.nextInt();
-                    if (Pokemons.get(mod).isCaptured()==true) {
+                    if (Pokemons.get(mod).isCaptured()==false) {
                             if (tipo == 1 && Pokemons.get(mod) instanceof FireType) {
 
 
