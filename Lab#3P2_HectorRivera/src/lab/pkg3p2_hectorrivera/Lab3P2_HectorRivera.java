@@ -41,10 +41,30 @@ public class Lab3P2_HectorRivera {
                     Inventory.add(new Pokeball(color,serie,efective));
                 }break;
                 case 3:{
+                    String watertype = "";
+                    String firetype = "";
+                    String greentype = "";
+                    
+                    for (Pokemon p : Pokemons) {
+                        if (p instanceof WaterType) {
+                            watertype+= p+"\n";
+                        } else if (p instanceof FireType) {
+                            firetype+= p+"\n";
+                        } else if (p instanceof GrassType) {
+                            greentype+= p+"\n";
+                        }
+                    }
+                    System.out.println("---FireType---\n"+firetype);
+                    System.out.println("---watertype---\n"+watertype);
+                    System.out.println("---greenType---\n"+greentype);
                     
                 }break;
                 case 4:{
-                    
+                    System.out.println("Que tipo de pokemon desea borrar\n1.Tipo fuego\n2.Tipo Agua\n3.Tipo grama");
+                    int tipo = sc.nextInt();
+                    switch(tipo){
+                        
+                    }
                 }break;
                 case 5:{
                     
