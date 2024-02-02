@@ -126,7 +126,7 @@ public class Lab3P2_HectorRivera {
                         System.out.println("EL POKEMON "+toCapture.getName()+ " HA aparecido");
                         System.out.println("desea \n1. huir \n2.capturar");
                         int desicion = sc.nextInt();
-                        while(desicion != 1 || desicion != 2){
+                        while(desicion != 1 && desicion != 2){
                             System.out.println("Ingrese valor valido");
                             desicion = sc.nextInt();
                         }
@@ -138,6 +138,7 @@ public class Lab3P2_HectorRivera {
                                 }
                                 int chance = Inventory.get(pokeball).getEfective()*10;
                                 int random = rd.nextInt(30)+1;
+                                System.out.println(chance+"-"+random);
                                 if (chance>=random) {
                                     System.out.println("Capturo al pokemon");
                                     toCapture.setMiPokeball(Inventory.get(pokeball));
