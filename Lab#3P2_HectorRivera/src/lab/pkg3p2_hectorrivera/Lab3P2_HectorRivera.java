@@ -120,24 +120,132 @@ public class Lab3P2_HectorRivera {
                     
                 }break;
                 case 6:{
-                    System.out.println("Que tipo de pokemon desea borrar\n1.Tipo fuego\n2.Tipo Agua\n3.Tipo grama");
+                    System.out.println("Que tipo de pokemon desea modificar\n1.Tipo fuego\n2.Tipo Agua\n3.Tipo grama");
                     int tipo = sc.nextInt();
                     while(tipo> 3 || tipo <1){
                         System.out.println("Ingrese valor valido");
                         tipo = sc.nextInt();
                     }
-                }break;
+                    System.out.println("Ingrese el pokemon a modificar");
+                    int mod = sc.nextInt();
+                    if (Pokemons.get(mod).isCaptured()==true) {
+                            if (tipo == 1 && Pokemons.get(mod) instanceof FireType) {
+
+
+                                System.out.println("Que desea modificar");
+                                System.out.println("1.Nombre\n2.Numero de entrada\n3.potencia llamas");
+                                int Modificar = sc.nextInt();
+
+                                while(Modificar> 3 || Modificar <1){
+                                System.out.println("Ingrese valor valido");
+                                Modificar = sc.nextInt();
+                                }
+
+                                switch(Modificar){
+                                    case 1:{
+                                        sc.nextLine();
+                                        System.out.println("ingrese nuevo nombre");
+                                        Pokemons.get(mod).setName(sc.nextLine());
+                                    }break;
+                                    case 2:{
+                                        System.out.println("ingrese nuevo numero de entrada");
+                                        Pokemons.get(mod).setNumEntry(sc.nextInt());
+                                    }break;
+                                    case 3:{
+                                        System.out.println("Ingrese nueva potencia de llamas");
+                                        ((FireType)Pokemons.get(mod)).setPower(sc.nextInt());
+                                    }break;
+
+                                }
+                        }else{
+                            System.out.println("el pokemon no es del tipo que elgio");
+                        }//fin 1
+
+                        if (tipo == 2 && Pokemons.get(mod) instanceof WaterType) {
+
+                            System.out.println("Que desea modificar");
+                            System.out.println("1.Nombre\n2.Numero de entrada\n3.Puede vivir fuera de agua");
+                            int Modificar = sc.nextInt();
+
+                            while(Modificar> 3 || Modificar <1){
+                            System.out.println("Ingrese valor valido");
+                            Modificar = sc.nextInt();
+                            }
+
+                            switch(Modificar){
+                                case 1:{
+                                    sc.nextLine();
+                                    System.out.println("ingrese nuevo nombre");
+                                    Pokemons.get(mod).setName(sc.nextLine());
+                                }break;
+                                case 2:{
+                                    System.out.println("ingrese nuevo numero de entrada");
+                                    Pokemons.get(mod).setNumEntry(sc.nextInt());
+                                }break;
+                                case 3:{
+                                    System.out.println("Puede vivir fuera del agua(si o no)");
+                                    String fueraDeAgua = sc.nextLine(); 
+                                    while( (fueraDeAgua.equalsIgnoreCase("si") || fueraDeAgua.equalsIgnoreCase("no")) == false){
+                                        System.out.println("Ingrese opcion valida");
+                                        System.out.println("Puede vivir fuera del agua(si o no)");
+                                        fueraDeAgua = sc.nextLine(); 
+                                    }
+                                    if (fueraDeAgua.equalsIgnoreCase("si")) {
+                                        ((WaterType)Pokemons.get(mod)).setOutOfWater(true);
+                                    }else if (fueraDeAgua.equalsIgnoreCase("no")){
+                                        ((WaterType)Pokemons.get(mod)).setOutOfWater(false);
+                                    }
+                                }break;
+
+                            }
+                        }else{
+                            System.out.println("el pokemon no es del tipo que elgio");
+                        }//fin 2
+
+                        if (tipo == 3 && Pokemons.get(mod) instanceof GrassType) {
+
+                                System.out.println("Que desea modificar");
+                                System.out.println("1.Nombre\n2.Numero de entrada\n3.habitat");
+                                int Modificar = sc.nextInt();
+
+                                while(Modificar> 3 || Modificar <1){
+                                System.out.println("Ingrese valor valido");
+                                Modificar = sc.nextInt();
+                                }
+
+                                switch(Modificar){
+                                    case 1:{
+                                        sc.nextLine();
+                                        System.out.println("ingrese nuevo nombre");
+                                        Pokemons.get(mod).setName(sc.nextLine());
+                                    }break;
+                                    case 2:{
+                                        System.out.println("ingrese nuevo numero de entrada");
+                                        Pokemons.get(mod).setNumEntry(sc.nextInt());
+                                    }break;
+                                    case 3:{
+                                        sc.nextLine();
+                                        System.out.println("Ingrese nuevo habitat");
+                                        ((GrassType)Pokemons.get(mod)).setHabitat(sc.nextLine());
+                                    }break;
+
+                                }
+                            System.out.println("\nMOdificado correctamente\n");    
+                        }else{
+                            System.out.println("el pokemon no es del tipo que elgio");
+                        }//fin 3
+                    }else{
+                        System.out.println("No se puede modificar");
+                    }//fin if
+                    
+                }break;//fin opc 6
+                
                 case 7:break;
                 default:
                     System.out.println("Ingrese un valor valido");
-            }
-        }
-    }
-    public static void print(){
-        for (int i = 0; i < Inventory.size(); i++) {
-            System.out.println(Inventory.get(i));
-        }
-    }
+            }//fin switch
+        }//fin while
+    }//fin main
     public static void build(int tipo){
         sc.nextLine();
         System.out.println("Ingrese nombre");
@@ -193,4 +301,5 @@ public class Lab3P2_HectorRivera {
         }
 
     }
+    
 }
