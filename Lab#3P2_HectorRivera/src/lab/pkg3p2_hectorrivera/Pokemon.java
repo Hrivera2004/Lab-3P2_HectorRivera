@@ -18,11 +18,10 @@ public class Pokemon {
     public Pokemon() {
     }
 
-    public Pokemon(String name, int numEntry, String nature, Pokeball MiPokeball) {
+    public Pokemon(String name, int numEntry, String nature) {
         this.name = name;
         this.numEntry = numEntry;
         this.nature = nature;
-        this.MiPokeball = MiPokeball;
     }
 
     public String getName() {

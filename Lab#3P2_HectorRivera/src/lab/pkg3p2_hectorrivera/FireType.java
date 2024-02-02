@@ -13,8 +13,8 @@ public class FireType extends Pokemon{
 
     public FireType() {
     }
-    public FireType(int power, String name, int numEntry, String nature, Pokeball MiPokeball) {
-        super(name, numEntry, nature, MiPokeball);
+    public FireType(int power, String name, int numEntry, String nature) {
+        super(name, numEntry, nature);
         this.power = power;
     }
 
