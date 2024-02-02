@@ -22,6 +22,10 @@ public class Lab3P2_HectorRivera {
                     System.out.println("--------------------------------");
                     System.out.println("Que tipo de pokemon desea crear\n1.Tipo fuego\n2.Tipo Agua\n3.Tipo grama");
                     int tipo = sc.nextInt();
+                    while(tipo> 3 || tipo <1){
+                        System.out.println("Ingrese valor valido");
+                        tipo = sc.nextInt();
+                    }
                     build(tipo);     
 
                     System.out.println("\nPokemon agregado");
@@ -62,15 +66,66 @@ public class Lab3P2_HectorRivera {
                 case 4:{
                     System.out.println("Que tipo de pokemon desea borrar\n1.Tipo fuego\n2.Tipo Agua\n3.Tipo grama");
                     int tipo = sc.nextInt();
+                    while(tipo> 3 || tipo <1){
+                        System.out.println("Ingrese valor valido");
+                        tipo = sc.nextInt();
+                    }
                     switch(tipo){
-                        
+                        case 1:{
+                            for (int i = 0; i < Pokemons.size(); i++) {
+                                if (Pokemons.get(i) instanceof FireType) {
+                                    System.out.println(i+"."+Pokemons.get(i));
+                                }
+                            }
+                            System.out.println("Cual desea borrar?");
+                            int delete = sc.nextInt();
+                            if (Pokemons.get(delete) instanceof FireType ) {
+                                Pokemons.remove(delete);
+                            }else{
+                                System.out.println("No es parte de la lista");
+                            }
+                        }break;
+                        case 2:{
+                            for (int i = 0; i < Pokemons.size(); i++) {
+                                if (Pokemons.get(i) instanceof WaterType) {
+                                    System.out.println(i+"."+Pokemons.get(i));
+                                }
+                            }
+                            System.out.println("Cual desea borrar?");
+                            int delete = sc.nextInt();
+                            if (Pokemons.get(delete) instanceof WaterType ) {
+                                Pokemons.remove(delete);
+                            }else{
+                                System.out.println("No es parte de la lista");
+                            }
+                        }break;
+                        case 3:{
+                            for (int i = 0; i < Pokemons.size(); i++) {
+                                if (Pokemons.get(i) instanceof GrassType) {
+                                    System.out.println(i+"."+Pokemons.get(i));
+                                }
+                            }
+                            System.out.println("Cual desea borrar?");
+                            int delete = sc.nextInt();
+                            if (Pokemons.get(delete) instanceof GrassType ) {
+                                Pokemons.remove(delete);
+                            }else{
+                                System.out.println("No es parte de la lista");
+                            }
+                            System.out.println("\nBorrado\n");
+                        }break;
                     }
                 }break;
                 case 5:{
                     
                 }break;
                 case 6:{
-                    
+                    System.out.println("Que tipo de pokemon desea borrar\n1.Tipo fuego\n2.Tipo Agua\n3.Tipo grama");
+                    int tipo = sc.nextInt();
+                    while(tipo> 3 || tipo <1){
+                        System.out.println("Ingrese valor valido");
+                        tipo = sc.nextInt();
+                    }
                 }break;
                 case 7:break;
                 default:
